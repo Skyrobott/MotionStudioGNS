@@ -64,6 +64,7 @@ void UMSSettingsWidget::OnAmbientValueChanged(float Value)
 void UMSSettingsWidget::OnSaveMenuSettings()
 {
 	if (!CurrentSaveGame && !SaveSucceedAnimation) return;
+	StopAnimation(SaveSucceedAnimation);
 	CurrentSaveGame->UIVolume = UIVolume->GetValue();
 	CurrentSaveGame->AmbientVolume = AmbientVolume->GetValue();
 	UGameplayStatics::SaveGameToSlot(CurrentSaveGame, SaveSlot, 0);
